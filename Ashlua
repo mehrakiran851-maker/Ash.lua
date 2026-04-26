@@ -1,0 +1,38 @@
+local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
+local Window = Library.CreateLib("Ashish Hub: OMNI-GOD 👑", "Midnight")
+
+-- [ ELITE TECH ]
+local TechTab = Window:NewTab("Elite Tech")
+local TechSection = TechTab:NewSection("TSB Techs")
+
+TechSection:NewButton("Supa + Twisted Combo", "Activates Combo", function()
+    print("Combo Active")
+end)
+
+-- [ GOD COMBAT ]
+local CombatTab = Window:NewTab("Combat")
+local CombatSection = CombatTab:NewSection("Aim & Hitbox")
+
+CombatSection:NewSlider("Hitbox Size", "Expand enemy hitboxes", 100, 2, function(v)
+    for _, p in pairs(game.Players:GetPlayers()) do
+        if p ~= game.Players.LocalPlayer and p.Character then
+            p.Character.HumanoidRootPart.Size = Vector3.new(v, v, v)
+            p.Character.HumanoidRootPart.Transparency = 0.7
+        end
+    end
+end)
+
+-- [ VIP UNLOCKER ]
+local VIPTab = Window:NewTab("VIP Hacks")
+local VIPSection = VIPTab:NewSection("Gamepass Spoof")
+
+VIPSection:NewButton("Unlock VIP & 2x", "Spoofs Gamepasses", function()
+    local p = game.Players.LocalPlayer
+    local t = {"VIP", "IsVIP", "Premium", "2xMoney"}
+    for _, v in pairs(t) do
+        local b = Instance.new("BoolValue", p); b.Name = v; b.Value = true
+    end
+end)
+
+-- Baaki features bhi isi tarah add ho jayenge
+
